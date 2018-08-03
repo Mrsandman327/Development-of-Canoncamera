@@ -119,9 +119,9 @@ void applicationRun()
 		if(i==0) Cameradata.IsoDesc[i]=IsoDesc.numElements;
 		else Cameradata.IsoDesc[i]=IsoDesc.propDesc[i];
 	}
-	CAv();
-	CTv();
-	CIso();
+	CAv();//光圈值和ID的银映射
+	CTv();//快门值和ID的银映射
+	CIso();//感光度值和ID的银映射
 	//EdsUInt32 data;
 	//err = EdsGetPropertyData(camera,kEdsPropID_Av,0,sizeof(data),&data );
 	//Cameradata.curAv=data;
