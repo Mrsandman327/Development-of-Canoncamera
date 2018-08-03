@@ -1,0 +1,45 @@
+﻿生成启动时间为 8/3/2018 12:12:38 PM。
+     1>项目“F:\Canon Test\Canon Test\Canon Test.vcxproj”在节点 2 上(build 个目标)。
+     1>InitializeBuildStatus:
+         正在对“.\Debug\Canon Test.unsuccessfulbuild”执行 Touch 任务。
+       ClCompile:
+         所有输出均为最新。
+         E:\InstallFile\Visual Studio 2010\VC\bin\CL.exe /c /I.\EDSDK\Header /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D _MBCS /D _AFXDLL /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp".\Debug\Canon.pch" /Fo".\Debug\\" /Fd".\Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt Canon.cpp
+         Canon.cpp
+     1>f:\canon test\canon test\canon.cpp(482): warning C4101: “point”: 未引用的局部变量
+     1>f:\canon test\canon test\canon.cpp(481): warning C4101: “zoom”: 未引用的局部变量
+     1>f:\canon test\canon test\canon.cpp(483): warning C4101: “histogram”: 未引用的局部变量
+     1>f:\canon test\canon test\canon.cpp(485): warning C4101: “sizeJpegLarge”: 未引用的局部变量
+     1>f:\canon test\canon test\canon.cpp(484): warning C4101: “zoomRect”: 未引用的局部变量
+     1>f:\canon test\canon test\canon.cpp(713): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 e:\installfile\visual studio 2010\vc\include\string.h(110) : 参见“strcat”的声明
+     1>f:\canon test\canon test\canon.cpp(860): warning C4018: “<”: 有符号/无符号不匹配
+     1>f:\canon test\canon test\canon.cpp(875): warning C4805: “==”: 在操作中将类型“EdsBool”与类型“bool”混合不安全
+     1>f:\canon test\canon test\canon.cpp(875): warning C4996: 'stricmp': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _stricmp. See online help for details.
+                 e:\installfile\visual studio 2010\vc\include\string.h(246) : 参见“stricmp”的声明
+     1>f:\canon test\canon test\canon.cpp(1409): warning C4715: “updateProperty”: 不是所有的控件路径都返回值
+       ResourceCompile:
+         所有输出均为最新。
+       ManifestResourceCompile:
+         所有输出均为最新。
+       Link:
+         E:\InstallFile\Visual Studio 2010\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:".\CanonT\Canon.exe" /INCREMENTAL /NOLOGO /LIBPATH:.\EDSDK\Library\ EDSDK.lib /MANIFEST /ManifestFile:".\Debug\Canon.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"F:\Canon Test\Canon Test\CanonT\Canon.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\CanonT\Canon.lib" /MACHINE:X86 ".\Debug\Canon Test.res"
+         .\Debug\Canon.exe.embed.manifest.res
+         ".\Debug\Canon Test.obj"
+         ".\Debug\Canon TestDlg.obj"
+         .\Debug\Canon.obj
+         .\Debug\stdafx.obj
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:".\Debug\Canon.exe.embed.manifest" /manifest .\Debug\Canon.exe.intermediate.manifest "E:\InstallFile\Visual Studio 2010\VC\Include\Manifest\dpiaware.manifest"
+         所有输出均为最新。
+       LinkEmbedManifest:
+         所有输出均为最新。
+         Canon Test.vcxproj -> F:\Canon Test\Canon Test\.\CanonT\Canon.exe
+       FinalizeBuildStatus:
+         正在删除文件“.\Debug\Canon Test.unsuccessfulbuild”。
+         正在对“.\Debug\Canon Test.lastbuildstate”执行 Touch 任务。
+     1>已完成生成项目“F:\Canon Test\Canon Test\Canon Test.vcxproj”(build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:02.57
