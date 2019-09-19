@@ -638,13 +638,13 @@ void OnDrawImage(CDC *pDC, unsigned char* pbyteImage, int size,CRect rect)
 	CComPtr<IStream> stream;
 	stream = NULL;
 
-	HGLOBAL hMem = ::GlobalAlloc(GHND, size); 
-	LPVOID pBuff = ::GlobalLock(hMem);
+	HGLOBAL hMem = ::GlobalAlloc(GHND, size); //从堆中分配一定数目的字节数 GHND为分配方式（可移动且初始为0）返回一个新分配的内存对象的句柄。
+	LPVOID pBuff = ::GlobalLock(hMem);//锁定内存中指定的内存块，并返回一个地址值，令其指向内存块的起始处。除非用 GlobalUnlock 函数将内存块解锁，否则地址会一直保持有效。
 
 	memcpy(pBuff, pbyteImage, size);
 
-	::GlobalUnlock(hMem);
-	CreateStreamOnHGlobal(hMem, TRUE, &stream);
+	::GlobalUnlock(hMem);//解锁内存块
+	CreateStreamOnHGlobal(hMem, TRUE, &stream);//从指定内存创建流对象 TRUE：自动释放内存
 
 	image.Load(stream);
 
@@ -654,7 +654,7 @@ void OnDrawImage(CDC *pDC, unsigned char* pbyteImage, int size,CRect rect)
 
 	image.Destroy();
 
-	::GlobalFree(hMem);
+	::GlobalFree(hMem);//释放指定的全局内存块
 }
 
 EdsError getFirstCamera(EdsCameraRef *camera)
