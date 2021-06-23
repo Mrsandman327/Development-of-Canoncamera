@@ -8,6 +8,9 @@ C++版本
    + [CanonCamera代码解析](#CanonCamera代码解析) 
       + [相机控制代码](#相机控制代码)
       + [相机参数回调显示](#相机参数回调显示)
+   + [调用过程解析示例](#调用过程解析示例)
+      + [拍照和下载图像](#拍照和下载图像)
+      + [获取属性变化](#获取属性变化)
 + [如何使用](#如何使用) 
    + [回调函数](#回调函数)
    + [相机连接](#相机连接)
@@ -75,7 +78,45 @@ bool Canon_SetImageQualityCallback(IMGQUALITYCALLBACK imgqualitystate,LPARAM lPa
 bool Canon_SetEvfAFModeCallback(EVFAFMODECALLBACK evfafmodestate,LPARAM lParam);        //EVF AF模式
 ```
 <br>
+### 调用过程解析示例
+#### 拍照和下载图像
+```C++
+//1.定义对象
+ActionSource	_TakePicture;
+//2.添加订阅者，命令字符
+_TakePicture.addActionListener(listener);
+_TakePicture.setActionCommand("TakePicture");
+//3.执行命令
+_TakePicture.fireEvent();
+	actionPerformed(event);//对比命令字符
+		StoreAsync(new TakePictureCommand(_model));//创建对应任务
+			_processor.enqueue( command );//添加到任务队列
+				command->execute();//在线程中执行命令TakePictureCommand::execute()
+//4.下载图像
+//设置SDK对象事件回调
+err = EdsSetPropertyEventHandler( camera, kEdsObjectEvent_All, CameraEventListener::handleObjectEvent , (EdsVoid *)_controller);
+//下载
+case kEdsObjectEvent_DirItemRequestTransfer:
+				fireEvent(controller, "download", inRef);
+```
+#### 获取属性变化
+```C++
+//1.设置SDK属性事件回调
+err = EdsSetPropertyEventHandler( camera, kEdsPropertyEvent_All, CameraEventListener::handlePropertyEvent , (EdsVoid *)_controller);
+//2.将属性添加到观察者
+ob->addObserver(static_cast<Observer*>(&_Tv));
+//3.当相机属性改变时，会触发SDK属性事件回调，通知PC属性改变
+switch(inEvent)
+{
+    case kEdsPropertyEvent_PropertyChanged:
+        fireEvent(controller, "get_Property", &inPropertyID);
+        break;
 
+    case kEdsPropertyEvent_PropertyDescChanged:
+        fireEvent(controller, "get_PropertyDesc", &inPropertyID);
+        break;
+}
+```
 ## 如何使用
 ```C++
 CanonCamera canoncam;//定义CanonCamera对象

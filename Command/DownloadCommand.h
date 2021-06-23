@@ -56,7 +56,7 @@ public:
 			CameraEvent e("DownloadStart");
 			_model->notifyObservers(&e);
 		}
-
+#if 0
 		/*************************************Ö¸¶¨Í¼Ïñ´æ´¢Â·¾¶*************************************/
 		TCHAR sFilePath[MAX_PATH];
 		GetModuleFileName(NULL,sFilePath,MAX_PATH);
@@ -92,7 +92,7 @@ public:
 
 		}
 		/*****************************************************************************************/
-
+#endif
 		//Make the file stream at the forwarding destination
 		if(err == EDS_ERR_OK)
 		{	

@@ -1,4 +1,3 @@
-#include "stdafx"
 #include "CanonCamera.h"
 
 CanonCamera::CanonCamera(void)
@@ -472,7 +471,7 @@ bool CanonCamera::Canon_ListCamerasAndConnect(void)
 
 	if(err != EDS_ERR_OK)
 	{
-		::MessageBox(NULL,"Cannot detect camera",NULL,MB_OK);
+		//Cannot detect camera
 		isConnected=false;
 		goto LLL;
 	}

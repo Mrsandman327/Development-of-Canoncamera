@@ -1,12 +1,13 @@
-#pragma once
+#ifndef _CANONCAMERA_H
+#define _CANONCAMERA_H
 #include <map>
 #include "EDSDK/Header/EDSDK.h"
 #pragma comment (lib,"EDSDK/Library/EDSDK.lib")
 
-#include "Camrea/CameraModel.h"
-#include "Camrea/CameraModelLegacy.h"
-#include "Camrea/CameraController.h"
-#include "Camrea/CameraEventListener.h"
+#include "Camera/CameraModel.h"
+#include "Camera/CameraModelLegacy.h"
+#include "Camera/CameraController.h"
+#include "Camera/CameraEventListener.h"
 #include "Class/ActionSource.h"
 #include "Event/EVfDownload.h"
 #include "Event/DownloadPic.h"
@@ -138,4 +139,4 @@ public:
 		return new CameraModel(camera);
 	}
 };
-
+#endif
