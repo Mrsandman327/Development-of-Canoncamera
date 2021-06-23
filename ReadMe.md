@@ -12,7 +12,7 @@ C++版本
    + [回调函数](#回调函数)
    + [相机连接](#相机连接)
    + [相机设置](#相机设置)
-   <br>
+<br>
 ## 文件夹说明
 - Camra: 涉及到相机操作控制
 - Class:相机动作，线程，线程控制
@@ -76,6 +76,7 @@ bool Canon_SetImageQualityCallback(IMGQUALITYCALLBACK imgqualitystate,LPARAM lPa
 bool Canon_SetEvfAFModeCallback(EVFAFMODECALLBACK evfafmodestate,LPARAM lParam);        //EVF AF模式
 ```
 <br>
+
 ## 如何使用
 ```C++
 CanonCamera canoncam;//定义CanonCamera对象
