@@ -18,10 +18,10 @@ C++版本
 - Command:相机命令
 - Event:事件通知，观察者
 - EDSDK:相机原始SDK
-<br>
 ## CanonCamera
 CanonCamera类是用户使用的佳能相机控制接口代码
 <br>
+
 ### CanonCamera代码解析
 #### 相机控制代码
 ```C++
