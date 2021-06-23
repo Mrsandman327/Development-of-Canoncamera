@@ -65,10 +65,10 @@ bool Canon_SetEvfAFMode(int sel);
 //设置回调函数
 bool Canon_SetDownloadEvfCallback(IMAGEDATACALLBACK imgdata,LPARAM lParam);             //预览的数据
 void Canon_SetDownLoadCallback(DOWNLOADPROGRESSCALLBACK downloadstate,LPARAM lParam);   //下载图像的进度 
-bool Canon_SetTvCallback(TVCALLBACK tvstate,LPARAM lParam);								//TV值						
-bool Canon_SetAvCallback(AVCALLBACK avstate,LPARAM lParam);								//AV值
-bool Canon_SetIsoCallback(ISOCALLBACK isostate,LPARAM lParam);							//ISO值
-bool Canon_SetAEModeCallback(AECALLBACK aestate,LPARAM lParam);							//AE模式
+bool Canon_SetTvCallback(TVCALLBACK tvstate,LPARAM lParam);				//TV值					
+bool Canon_SetAvCallback(AVCALLBACK avstate,LPARAM lParam);				//AV值
+bool Canon_SetIsoCallback(ISOCALLBACK isostate,LPARAM lParam);				//ISO值
+bool Canon_SetAEModeCallback(AECALLBACK aestate,LPARAM lParam);				//AE模式
 bool Canon_SetMeteringModeCallback(METERINGMODECALLBACK meteringmodestate,LPARAM lParam);//测光模式
 bool Canon_SetExposureCompCallback(EXPOSURECOMPCALLBACK exposurecompstate,LPARAM lParam);//曝光补偿
 bool Canon_SetImageQualityCallback(IMGQUALITYCALLBACK imgqualitystate,LPARAM lParam);	//图像质量
@@ -86,7 +86,7 @@ CanonCamera canoncam;//定义CanonCamera对象
 //这里以曝光时间，预览和下载为例
 void xxxDlg::ShowTvState(EdsPropertyDesc TvDesc,EdsUInt32 Tv,LPARAM lParam)
 {
-	xxxDlg *pDlg =(xxxDlg *)lParam;
+     	xxxDlg *pDlg =(xxxDlg *)lParam;
 	
 	pDlg->m_Tv.ResetContent();
 	for(int i = 0; i < TvDesc.numElements; i++)
