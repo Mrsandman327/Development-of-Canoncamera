@@ -3,7 +3,7 @@
 C++
 <br>
 
-English| [简体中文](/README.md ) 
+English| [简体中文](/ReadMe.md ) 
 
 ## 目录
 + [Folder description](#Folder description)

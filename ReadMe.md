@@ -3,7 +3,7 @@
 C++版本
 <br>
 
-[English](/README-EN.md ) | 简体中文
+[English](/ReadMe-EN.md ) | 简体中文
 
 ## 目录
 + [文件夹说明](#文件夹说明)
