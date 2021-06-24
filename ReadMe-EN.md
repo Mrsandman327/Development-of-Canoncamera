@@ -6,19 +6,19 @@ C++
 English| [简体中文](/ReadMe.md ) 
 
 ## 目录
-+ [Folder description](#Folder description)
++ [Folderdescription](#Folderdescription)
 + [CanonCamera](#CanonCamera)
-   + [Code analysis](#Code analysis) 
-      + [Camera control code](#Camera control code)
-      + [Camera parameter callback](#Camera parameter callback)
-   + [Calling process analysis](#Calling process analysis)
-      + [Take pictures and download images](#Take pictures and download images)
-      + [Get property changes](#Get property changes)
-+ [How to use](#How to use) 
+   + [CodeAnalysis](#CodeAnalysis) 
+      + [CameraControl](#CameraControl)
+      + [CameraCallback](#CameraCallback)
+   + [Calling process analysis](#CallingAnalysis)
+      + [TakeImage&&Download](#TakeImage&&Download)
+      + [GetPropertyChanges](#GetPropertyChanges)
++ [HowToUse](#HowToUse) 
    + [Callback](#Callback)
-   + [Camera connection](#Camera connection)
-   + [Camera settings](#Camera settings)
-## Folder description
+   + [Connection](#Connection)
+   + [Settings](#Settings)
+## Folderdescription
 - Camra: 涉及到相机操作控制
 - Class:相机动作，线程，线程控制
 - Command:相机命令
@@ -28,8 +28,8 @@ English| [简体中文](/ReadMe.md )
 CanonCamera类是用户使用的佳能相机控制接口代码
 <br>
 
-### Code analysis
-#### Camera control code
+### CodeAnalysis
+#### CameraControl
 ```C++
 //设置订阅者和被订阅者
 void Canon_setupListener(ActionListener* listener);
@@ -66,7 +66,7 @@ bool Canon_SetImageQuality(int sel);
 //输出图像格式
 bool Canon_SetEvfAFMode(int sel);
 ```
-#### Camera parameter callback
+#### CameraCallback
 ```C++
 //设置回调函数
 bool Canon_SetDownloadEvfCallback(IMAGEDATACALLBACK imgdata,LPARAM lParam);             //预览的数据
@@ -80,8 +80,8 @@ bool Canon_SetExposureCompCallback(EXPOSURECOMPCALLBACK exposurecompstate,LPARAM
 bool Canon_SetImageQualityCallback(IMGQUALITYCALLBACK imgqualitystate,LPARAM lParam);	//图像质量
 bool Canon_SetEvfAFModeCallback(EVFAFMODECALLBACK evfafmodestate,LPARAM lParam);        //EVF AF模式
 ```
-### Calling process analysis
-#### Take pictures and download images
+### CallingAnalysis
+#### TakeImage&&Download
 ```C++
 //1.定义对象
 ActionSource	_TakePicture;
@@ -101,7 +101,7 @@ err = EdsSetPropertyEventHandler( camera, kEdsObjectEvent_All, CameraEventListen
 case kEdsObjectEvent_DirItemRequestTransfer:
 				fireEvent(controller, "download", inRef);
 ```
-#### Get property changes
+#### GetPropertyChanges
 ```C++
 //1.设置SDK属性事件回调
 err = EdsSetPropertyEventHandler( camera, kEdsPropertyEvent_All, CameraEventListener::handlePropertyEvent , (EdsVoid *)_controller);
@@ -119,7 +119,7 @@ switch(inEvent)
         break;
 }
 ```
-## How to use
+## HowToUse
 ```C++
 CanonCamera canoncam;//定义CanonCamera对象
 ```
@@ -199,7 +199,7 @@ void xxxDlg::ShowDownloadState(EdsUInt32 percent,int state,LPARAM lParam)
 	}
 }
 ```
-### Camera connection
+### Connection
 ```C++
 if (!canoncam.Canon_GetCameraConnectedState())
 {
@@ -223,7 +223,7 @@ else
 	canoncam.Canon_DisConnect();
 }
 ```
-### Camera settings
+### Settings
 ```C++
 //相机设置这个部分非常简单
 //拍摄
