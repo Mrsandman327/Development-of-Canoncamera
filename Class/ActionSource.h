@@ -35,7 +35,7 @@ public:
 		}
 	}
 	
-	void fireEvent(LPCTSTR command, void* arg = 0)
+	void fireEvent(std::string command, void* arg = 0)
 	{
 		std::vector<ActionListener*>::iterator i = _listeners.begin();
 		
