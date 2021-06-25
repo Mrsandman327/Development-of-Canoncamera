@@ -1,31 +1,31 @@
 # Development-of-Canon-camera
-<font color=#D2691E> Development of Canon camera</font>
+<font color=#D2691E> 瞎几把翻译的，请看中文</font>
 C++
 <br>
 
 English| [简体中文](/ReadMe.md ) 
 
-## 目录
+## Catalogue
 + [Folderdescription](#Folderdescription)
 + [CanonCamera](#CanonCamera)
    + [CodeAnalysis](#CodeAnalysis) 
       + [CameraControl](#CameraControl)
       + [CameraCallback](#CameraCallback)
    + [Calling process analysis](#CallingAnalysis)
-      + [TakeImage&&Download](#TakeImage&&Download)
-      + [GetPropertyChanges](#GetPropertyChanges)
+      + [TakeImage](#TakeImage)
+      + [GetProperty](#GetProperty)
 + [HowToUse](#HowToUse) 
    + [Callback](#Callback)
    + [Connection](#Connection)
    + [Settings](#Settings)
 ## Folderdescription
-- Camra: 涉及到相机操作控制
-- Class:相机动作，线程，线程控制
-- Command:相机命令
-- Event:事件通知，观察者
-- EDSDK:相机原始SDK
+- Camra:  About the camera control
+- Class: About the camera action thread
+- Command:About the specific actions of the camera
+- Event:About the camera state change event
+- EDSDK:Canon Camera SDK
 ## CanonCamera
-CanonCamera类是用户使用的佳能相机控制接口代码
+CanonCamera class is the Canon camera control interface code used by users
 <br>
 
 ### CodeAnalysis
@@ -81,7 +81,7 @@ bool Canon_SetImageQualityCallback(IMGQUALITYCALLBACK imgqualitystate,LPARAM lPa
 bool Canon_SetEvfAFModeCallback(EVFAFMODECALLBACK evfafmodestate,LPARAM lParam);        //EVF AF模式
 ```
 ### CallingAnalysis
-#### TakeImage&&Download
+#### TakeImage
 ```C++
 //1.定义对象
 ActionSource	_TakePicture;
@@ -101,7 +101,7 @@ err = EdsSetPropertyEventHandler( camera, kEdsObjectEvent_All, CameraEventListen
 case kEdsObjectEvent_DirItemRequestTransfer:
 				fireEvent(controller, "download", inRef);
 ```
-#### GetPropertyChanges
+#### GetProperty
 ```C++
 //1.设置SDK属性事件回调
 err = EdsSetPropertyEventHandler( camera, kEdsPropertyEvent_All, CameraEventListener::handlePropertyEvent , (EdsVoid *)_controller);
