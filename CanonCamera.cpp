@@ -354,7 +354,6 @@ CanonCamera::CanonCamera(void)
 	_EvfAFModeDesc.insert( std::pair<EdsUInt32, const char *>(0xffffffff,"unknown"));
 }
 
-
 CanonCamera::~CanonCamera(void)
 {
 	if(_model != NULL)
@@ -370,7 +369,6 @@ CanonCamera::~CanonCamera(void)
 		_controller = NULL;
 	}
 }
-
 
 bool CanonCamera::Canon_ListCamerasAndConnect(void)
 {
@@ -618,8 +616,6 @@ void CanonCamera::Canon_setupObserver(Observable* ob)
 	//ob->addObserver(static_cast<Observer*>(&_ImageQuality));
 	//ob->addObserver(static_cast<Observer*>(&_EvfAFMode));
 }
-
-
 
 bool CanonCamera::Canon_TakeAnImage(void)
 {
